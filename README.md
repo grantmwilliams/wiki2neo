@@ -30,9 +30,12 @@ Options:
   --help                        Show this message and exit.
 
 Import resulting CSVs into Neo4j:
-$ neo4j-admin import --nodes:Page pages.csv \
-        --relationships:LINKS_TO links.csv \
-        --ignore-duplicate-nodes --ignore-missing-nodes --multiline-fields
+$ neo4j-admin import \
+    --nodes=:Page=pages.csv \
+    --relationships=:LINKS_TO=links.csv \
+    --skip-bad-relationships \
+    --skip-duplicate-nodes \
+    --multiline-fields
 ```
 
 Downloads from Wikipedia are in compressed `xml.bz2` format. `wiki2neo` supports
